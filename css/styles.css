@@ -25,12 +25,12 @@
 /* added some colloring for the buttons */
 .btn-primary {
 
-  background-color: #5ce7c8;
+  background-color: #4875f0;
   font-size: 14px;
   border: none;
   display: inline-block;
   text-decoration: none;
-  padding: 10px;
+  padding: 16px;
   border-radius: 60px;
   transition: 0.4s opacity, 0.5s;
 
@@ -42,11 +42,10 @@
   opacity: 0.9;
   background-image:     linear-gradient(
     to right,
-    #E7484F,
-    #F68B1D 33.3%,
-    #00AAC3 83.25%,
-  
-    #E7484F 100%
+    rgb(231, 48, 57),
+    rgb(226, 121, 15) 33.3%,
+    rgba(3, 158, 182, 0.931) 83.25%,
+    rgb(216, 63, 71) 100%
 
     );
     animation:slidebg 20s linear infinite;
