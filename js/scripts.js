@@ -67,6 +67,8 @@ var pokemonRepository = (function() {
         // Now we add the details to the item
         item.imageUrlFront = details.sprites.front_default;
         item.imageUrlBack = details.sprites.back_default;
+        item.imageUrlBackShiny = details.sprites.back_shiny;
+        item.imageUrlFrontShiny = details.sprites.front_shiny;
         item.height = details.height;
         //loop for each ofthe pokemon types.
         //Also changing the background color depend on each pokemon type.
@@ -76,32 +78,46 @@ var pokemonRepository = (function() {
         }
         if (item.types.includes('grass')) {
           $('.modal-body').css('color', 'darkgreen');
+          $('.modal-footer, .modal-header').css('background-color', 'darkgreen');
         } else if (item.types.includes('fire')) {
           $('.modal-body').css('color', 'red');
+          $('.modal-footer, .modal-header').css('background-color', 'red');
         } else if (item.types.includes('psychic')) {
           $('.modal-body').css('color', '#FF69B4');
+          $('.modal-footer, .modal-header').css('background-color', '#FF69B4');
         } else if (item.types.includes('poison')) {
           $('.modal-body').css('color', 'purple',);
+          $('.modal-footer, .modal-header').css('background-color', 'purple');
         } else if (item.types.includes('water')) {
           $('.modal-body').css('color', 'blue');
+          $('.modal-footer, .modal-header').css('background-color', 'blue');
         } else if (item.types.includes('bug')) {
           $('.modal-body').css('color', '#3f000f');
+          $('.modal-footer, .modal-header').css('background-color', '#3f000f');
         } else if (item.types.includes('rock')) {
           $('.modal-body').css('color', '#BC8F8F');
+          $('.modal-footer, .modal-header').css('background-color', '#BC8F8F');
         } else if (item.types.includes('flying')) {
           $('.modal-body').css('color', '#2F4F4F');
+          $('.modal-footer, .modal-header').css('background-color', '#2F4F4F');
         } else if (item.types.includes('electric')) {
           $('.modal-body').css('color', 'gold');
+          $('.modal-footer, .modal-header').css('background-color', 'gold');
         } else if (item.types.includes('ice')) {
           $('.modal-body').css('color', '#4169E1');
+          $('.modal-footer, .modal-header').css('background-color', '#4169E1');
         } else if (item.types.includes('ghost')) {
           $('.modal-body').css('color', '#8B008B');
+          $('.modal-footer, .modal-header').css('background-color', '#8B008B');
         } else if (item.types.includes('ground')) {
           $('.modal-body').css('color', '#D2B48C');
+          $('.modal-footer, .modal-header').css('background-color', '#D2B48C');
         } else if (item.types.includes('fairy')) {
           $('.modal-body').css('color', '#EE82EE');
+          $('.modal-footer, .modal-header').css('background-color', '#EE82EE');
         } else if (item.types.includes('steel')) {
           $('.modal-body').css('color', '#708090');
+          $('.modal-footer, .modal-header').css('background-color', '#708090');
         }
         //loop to get the abilities of a selected pokemon
         item.abilities = [];
@@ -124,6 +140,7 @@ var pokemonRepository = (function() {
     modalBody.empty();
     //clear existing content of the model
     modalTitle.empty();
+    modalTitle.css('color', 'white');
 
     //creating element for name in modal content
     var nameElement = $("<h1>" + item.name + "</h1>");
@@ -132,6 +149,10 @@ var pokemonRepository = (function() {
     imageElementFront.attr("src", item.imageUrlFront);
     var imageElementBack = $('<img class="modal-img" style="width:50%">');
     imageElementBack.attr("src", item.imageUrlBack);
+    var imageElementBackShiny = $('<img class="modal-img" style="width:50%">');
+    imageElementBackShiny.attr("src", item.imageUrlBackShiny);
+    var imageElementFrontShiny = $('<img class="modal-img" style="width:50%">');
+    imageElementFrontShiny.attr("src", item.imageUrlFrontShiny);
     //creating element for height in modal content
     var heightElement = $("<p>" + "height : " + item.height + "</p>");
     //creating element for weight in modal content
@@ -144,12 +165,14 @@ var pokemonRepository = (function() {
   
     modalBody.append(imageElementFront);
     modalBody.append(imageElementBack);
+    modalBody.append(imageElementBackShiny);
+    modalBody.append(imageElementFrontShiny);
     modalBody.append(heightElement);
     modalBody.append(weightElement);
     modalBody.append(typesElement);
     modalBody.append(abilitiesElement);
     modalTitle.append(nameElement);
-    
+    $('.btn-secondary').css('background-color', '#8B4513');
   }
   
 
