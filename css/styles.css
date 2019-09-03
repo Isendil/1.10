@@ -56,12 +56,48 @@
     }
   }
 
-  .follow{
-    margin-top: 40px;
+  .card {
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 200px;
+    padding: 8px;
+    box-sizing: border-box;
+    margin: 5px;
+  }
+  
+  .card:hover {
+    animation: cardHover 0.3s forwards;
+    opacity: 5;
+  }
+  
+  @keyframes cardHover {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+      background: #6957ad;
+    }
   }
 
-  .follow a{
-    color: black;
-    padding: 10px 16px;
-    text-decoration: none;
+  .skipperWrap {
+    width: 100%;
+    text-align: center;
   }
+  
+  .skipperWrap > button {
+    border: 0;
+    color: rgb(117, 43, 43);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 1);
+    color: #23233d;
+    font-weight: bold;
+    padding: 15px 20px;
+    margin: 50px;
+    cursor: pointer;
+  }
+  

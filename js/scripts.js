@@ -1,6 +1,6 @@
 var pokemonRepository = (function() {
   var repository = [];
-  var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+  var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=20";
   function add(pokemon) {
     if (
       typeof pokemon === "object" &&
@@ -24,7 +24,8 @@ var pokemonRepository = (function() {
       var $cardBody = $('<div class="card-body"></div>');
       var $cardTitle = $('<h4 class="card-title" >' + pokemon.name + '</h4>');
       var $seeProfile = $('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">See Profile</button>');
-    
+
+
     $row.append($card);
     //Append the image to each card
     $card.append($image);
@@ -33,9 +34,11 @@ var pokemonRepository = (function() {
     $cardBody.append($seeProfile);
     $seeProfile.on('click', function(event) {
       showDetails(pokemon);
+
     });
   });
 }
+
 
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function() {
@@ -58,6 +61,9 @@ var pokemonRepository = (function() {
       .catch(function(e) {
         console.error(e);
       });
+      const nextPage = (url) => {
+        apiUrl(nextList.url, (r) => sort(r.results))
+      }
   }
 
   function loadDetails(item) {
@@ -133,6 +139,9 @@ var pokemonRepository = (function() {
         console.error(e);
       });
   }
+
+
+
   // show the modal content
   function showModal(item) {
     var modalTitle = $(".modal-title");
@@ -192,3 +201,4 @@ pokemonRepository.loadList().then(function() {
     pokemonRepository.addListItem(pokemon);
   });
 });
+
